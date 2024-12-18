@@ -5,7 +5,6 @@ import { MulterField } from '@nestjs/platform-express/multer/interfaces/multer-o
 import { AnyFilesInterceptor, FileFieldsInterceptor, FileInterceptor } from '@nestjs/platform-express';
 import * as path from "path";
 
-
 @Controller('books')
 export class BooksController {
     constructor(private booksService: BooksService) { }
