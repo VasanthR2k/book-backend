@@ -26,7 +26,6 @@ import { pastroservice } from "src/pastroLogin/pastroLogin.service";
     controllers:[employeecontroller,BooksController,Logincontroller,pastrocontroller],
     providers: [employeeservice,BooksService,Loginservice,JwtService,pastroservice],
     exports: []
-    
-    
+  
 })
 export class ControllersModule {}

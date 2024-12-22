@@ -7,7 +7,6 @@ import { DBbooks } from 'src/infrastructure/repositories/book.repositories';
 export class BooksService {
   constructor(private Ifbook: DBbooks) { }
 
-
   async getBooks(): Promise<any> {
     const findall = await this.Ifbook.findAll();
     return findall
