@@ -5,8 +5,10 @@ import { DBbooks } from 'src/infrastructure/repositories/book.repositories';
 @Injectable()
 
 export class BooksService {
-  constructor(private Ifbook: DBbooks) { }
 
+  constructor(
+    private Ifbook: DBbooks
+  ) { }
 
   async getBooks(): Promise<any> {
     const findall = await this.Ifbook.findAll();
@@ -15,12 +17,11 @@ export class BooksService {
 
   async addBOOks(data, file): Promise<any> {
     // return await this.Ifbook.createBooks(data, file);
-   return await  this.findsametitle(data,file)
+    return await this.findsametitle(data, file)
   }
 
-  async Updatebook(bookid, book,files): Promise<any> {
-    console.log(bookid)
-    return await this.Ifbook.updateBooks(bookid.id, book,files);
+  async Updatebook(bookid, book, files): Promise<any> {
+    return await this.Ifbook.updateBooks(bookid.id, book, files);
   }
 
   async deleteBook(bookid): Promise<any> {
@@ -28,7 +29,7 @@ export class BooksService {
   }
   async findbyid(bookid): Promise<any> {
 
-    console.log("bookid",bookid.id)
+    console.log("bookid", bookid.id)
 
     var findbyids = await this.Ifbook.findById(bookid.id)
     return findbyids
@@ -48,18 +49,18 @@ export class BooksService {
   async findcount(): Promise<any> {
 
     return await this.Ifbook.findCount()
-    
+
   }
   async findsametitle(data, file): Promise<any> {
-    console.log("data.title",data.title)
+    console.log("data.title", data.title)
     var samename = await this.Ifbook.findsametitle(data.title)
     console.log(samename)
-  
+
     if (samename) {
-    
-      return  { message: "title already exit" }
-      
-    
+
+      return { message: "title already exit" }
+
+
     }
     else {
       return await this.Ifbook.createBooks(data, file);
@@ -74,11 +75,11 @@ export class BooksService {
     // return {data: filter, count: filter.length,}
 
   }
-  async removefile(data){
+  async removefile(data) {
     const removefile = await this.Ifbook.removefile(data)
     return removefile
   }
-  
+
 
   async filterdatacount(data) {
 
@@ -93,8 +94,8 @@ export class BooksService {
     return upload
   }
 
-  async sametitle(data){
-    
+  async sametitle(data) {
+
   }
 
 }
